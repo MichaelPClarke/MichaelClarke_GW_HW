@@ -61,5 +61,25 @@ def tobs_sql():
 
 
 #%%
+@app.route('/api/v1.0/<start>')
+def maxminavg():
+    
+    results3 = pd.read.sql("Select max(tobs), min(tobs), avg(tobs) from measurement where date > '2016-08-23'")
+    
+    results3_json = list(np.ravel(results3))
+    
+    return jsonify(results3_json)
+
+
+#%%
+@app.route('/api/v1.0/<start>/<end>')
+def maxminavg2():
+    
+    results4 = pd.read.sql("Select max(tobs), min(tobs), avg(tobs) from measurement where date between '2016-08-23' and '2017-08-24'")
+    
+    results4_json = list(np.ravel(results4))
+    
+    return jsonify(results4_json)
+#%%
 if __name__ == '__main__':
     app.run(debug=True)
