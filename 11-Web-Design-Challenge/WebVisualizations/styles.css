@@ -1,0 +1,156 @@
+
+/* Giving the body the specified background color, adding font sizes for the h1 and h3 elements we'll be using */
+body {
+  background: #f1f1f1;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+h3 {
+  font-size: 30px;
+  color: green;
+}
+
+.dropbtn {
+  background-color: #b3b5bb;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  margin-right: 40px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+#element1 {
+  display:inline-block;
+}
+
+.container {
+    background-color: white;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-weight: 300;
+    
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+/* Giving our navbar some padding and a background color */
+.navbar {
+  padding: 10px;
+  background: gray;
+}
+
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+  }
+
+/* Making our navbar li's inline-block elements this makes it so we can have multiple on the same line. Floats could have been used too */
+.navbar li {
+  display: inline-block;
+  padding: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 3px;
+}
+
+/* Getting rid of the default link styles here */
+.navbar li a {
+  color: #000;
+  text-decoration: none;
+}
+
+/* Styling the header, giving it a height, a background color, and some top padding */
+.header {
+  height: 200px;
+  padding-top: 20px;
+  background: #cdcdcd;
+}
+
+/* Centering our h1 tag inside our header, giving it a little padding, removing its margin */
+.header h1 {
+  padding: 60px;
+  margin: 0;
+  color: #000;
+  text-align: center;
+}
+
+/* Giving the .post element margin on 3 sides */
+.post {
+  margin-top: 50px;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+#nav-select {
+  visibility: hidden;
+}
+
+.img {
+  width: 100%;
+  padding: 50px;
+  position: relative;
+  align-items: center;
+  margin-left: 60px;
+}
+
+.footer {
+  position: static;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: gray;
+  color: white;
+  text-align: center;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+/* Adding media queries to show the drop-down, and hide the navbar when the screen is smaller than 480 pixels */
+@media (max-width: 480px) {
+  .navbar li {
+    padding: 10px;
+  }
+
+  .post {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+
+  .navbar ul {
+    visibility: hidden;
+  }
+
+  #nav-select {
+    visibility: visible;
+  }
+}

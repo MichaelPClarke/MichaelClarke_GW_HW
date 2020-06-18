@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<title>
+Data
+</title>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-2">
+  <h1>Latitude</h1>
+  
+  </div>
+  <div class="col-md-6"></div>
+  <div class="col-md-3">
+      <div class="dropdown">
+      
+          <button class="dropbtn">Plots
+          </button>
+          <div class="dropdown-content">
+          <a href="index.html">Home</a>
+          <a href="temperature.html">Temperature</a>
+          <a href="Humidity.html">Humidity</a>
+          <a href="cloudiness.html">Cloudiness</a>
+          <a href="wind.html">Wind Speed</a>
+          </div>
+          <a href="comparisons.html">Comparisons</a>
+          <a href="data.html">Data</a>
+      </div>
+  </div>
+  </div>
+</div>
+
+
+<body>
+      <div class="container">
+        <h3>Summary: Latitude vs. X</h3>
+        <p>
+        <img src="download.png" alt="Lattemp">
+        This project looked at latitude data against different aspects of climate to see if there were correlations between them. 
+        You will be able to look at different visualizations and draw conclusions from the graphs.
+      
+        After assembling rhe dataset, we used Matplotlib to plot various aspects of the weather vs. latitude. Factors we looked at included
+        temperature, cloudiness, wind speed, and humidity. This site provides the source data and visualizations created as part of the anaysis, as well as explanations and descriptions of any trends and correlations witnessed.</p>
+      </div>
+      <div class="container">
+        <h2>Visualizations</h2>
+        <img src="download.png" alt="Lattemp"> <img src="download1.png" alt="LatHum">
+        <img src="download2.png" alt="LatCloud"> <img src="download3.png" alt="LatWind">
+      </div>
+    
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+<div class="footer">
+  <p>GW Data Bootcamp</p>
+</div>
+</html>
