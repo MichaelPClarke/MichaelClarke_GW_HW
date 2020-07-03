@@ -7,17 +7,30 @@ Created on Tue Jun  9 17:32:05 2020
 import numpy as np
 import pandas as pd
 from flask import Flask, jsonify
+import datetime as dt
 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, inspect, MetaData, Table
+
 Base = automap_base()
-engine = create_engine("sqlite:///hawaii.sqlite")
+
+engine = create_engine("sqlite:///Resources/hawaii.sqlite")
 Base.prepare(engine, reflect=True)
-conn = engine.connect()
+
+conn=engine.connect()
+
+measurement = Base.classes.measurement
+station = Base.classes.station
+
+
+session = Session(engine)
 
 app = Flask(__name__)
+
+#%%
+
 
 @app.route("/")
 def home():
@@ -27,16 +40,20 @@ def home():
         f"/api/v1.0/precipitation<br/>"
         f"/api/v1.0/stations<br/>"
         f"/api/v1.0/tobs<br/>"
-        f"/api/v1.0/<Start><br/>"
-        f"/api/v1.0/<start>/<end>"
+        f"/api/v1.0/start<br/>"
+        f"/api/v1.0/start/end<br/>"
     )
 #%%
 @app.route("/api/v1.0/precipitation")
 def precipitation():
     
-    results = pd.read_sql('SELECT date,prcp FROM measurement', engine)
+    session.query(measurement.date).order_by(measurement.date.desc()).first()
+    query_date = dt.date(2017, 8, 23) - dt.timedelta(days=365)
+    
+    df = session.query(measurement.date, measurement.prcp).\
+        filter(measurement.date > query_date).all()
 
-    results_json = list(np.ravel(results))
+    results_json = list(np.ravel(df))
 
     return jsonify(results_json)
 
@@ -61,10 +78,10 @@ def tobs_sql():
 
 
 #%%
-@app.route('/api/v1.0/<start>')
+@app.route('/api/v1.0/start')
 def maxminavg():
     
-    results3 = pd.read.sql("Select max(tobs), min(tobs), avg(tobs) from measurement where date > '2016-08-23'")
+    results3 = pd.read_sql("Select max(tobs), min(tobs), avg(tobs) from measurement where date > '2016-08-23'", engine)
     
     results3_json = list(np.ravel(results3))
     
@@ -72,10 +89,10 @@ def maxminavg():
 
 
 #%%
-@app.route('/api/v1.0/<start>/<end>')
+@app.route('/api/v1.0/start/end')
 def maxminavg2():
     
-    results4 = pd.read.sql("Select max(tobs), min(tobs), avg(tobs) from measurement where date between '2016-08-23' and '2017-08-24'")
+    results4 = pd.read_sql("Select max(tobs), min(tobs), avg(tobs) from measurement where date between '2016-08-23' and '2017-08-24'", engine)
     
     results4_json = list(np.ravel(results4))
     
