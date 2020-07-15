@@ -3,7 +3,7 @@ var button = d3.select("#filter-btn");
 var form = d3.select("#form-group");
 button.on("click", runEnter);
 form.on("submit", runEnter);
-function runEnter() {
+/*function runEnter() {
     var inputElement = d3.select("#datetime");
     var inputValue =  inputElement.property("value");
     console.log(inputValue);
@@ -18,23 +18,28 @@ function runEnter() {
             var cell= row.append("td");
             cell.text(value);
     });
-}); }
+}); }*/
 
 //This may need to be commented out to get above to work if I haven't gotten it working by submission
 function runEnter() {
     d3.event.preventDefault();
     var inputElement1 = d3.select("#datetime");
-    var inputValue1 = inputElement1.property("value");
+    
     var inputElement2 = d3.select("#city");
-    var inputValue2 = inputElement2.property("value");
+    
     var inputElement3 = d3.select("#state");
-    var inputValue3 = inputElement3.property("value");
+    
     var inputElement4 = d3.select("#country");
-    var inputValue4 = inputElement4.property("value");
+    
     var inputElement5 = d3.select("#shape");
+    
+    var inputValue1 = inputElement1.property("value");
+    var inputValue2 = inputElement2.property("value");
+    var inputValue3 = inputElement3.property("value");
+    var inputValue4 = inputElement4.property("value");
     var inputValue5 = inputElement5.property("value");
     var filter = tableData;
-    //console.log(filter);
+    console.log(filter);
     if (inputValue1 != "") {
         filter = filter.filter(sighting => sighting.datetime == inputValue1);
         console.log(filter)
@@ -53,7 +58,7 @@ function runEnter() {
         console.log(filter)
     }
     if (inputValue5 != "") {
-        filter = filter.filter(sighting => sighting.shape== inputValue5);
+        filter = filter.filter(sighting => sighting.shape == inputValue5);
         console.log(filter)
     }
     console.log(filter);
